@@ -1,10 +1,66 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-[Kundenservice] as Pikachu
-[Bestellverwaltung] as Hoothoot
-[Küche] as Glumanda
-[Lagerverwaltung] as Enton
+package "Burgerladen"{
+    [Kundenservice] as Pikachu
+    [Bestellverwaltung] as Hoothoot
+    [Küche] as Glumanda
+    [Lagerverwaltung] as Enton
+}
 
+Pikachu --> Hoothoot : Bestellung übergeben
+Hoothoot --> Glumanda : Bestllung übergeben
+Enton --> Glumanda : Zutaten übergeben
+Glumanda --> Enton : Zutaten anfragen
+Enton -> Hoothoot : Engpässe und Bestandsergänzungen
 
 @enduml
+
+@startuml
+package "Burgerladen"{
+    [Kundenservice] as Pikachu
+    [Bestellverwaltung] as Hoothoot
+    [Lagerverwaltung] as Enton
+    package "Küche"{
+    [Patty-Grillen] as Glumanda
+    [Salat] as Bissasam
+    [Suppe] as Shiggy
+    [Eis] as Schlurp
+}
+
+
+    Pikachu --> Hoothoot : Bestellung übergeben
+    Hoothoot --> "Küche" : Bestllung übergeben
+    Glumanda --> Enton : Zutaten anfordern
+    Shiggy --> Enton : Zutaten anfordern
+    Bissasam --> Enton : Zutaten anfordern
+    Schlurp --> Enton : Zutaten anfordern
+    Enton --> "Küche" : Zutaten übergeben
+    Enton -> Hoothoot : Engpässe und Bestandsergänzungen
+
+}
+@enduml
+
+@startuml
+package "Burgerladen"{
+    [Kundenservice] as Pikachu
+    [Bestellverwaltung] as Hoothoot
+    [Lagerverwaltung] as Enton
+    package "Küche"{
+    [Patty-Grillen] as Glumanda
+    [Salat] as Bissasam
+    [Suppe] as Shiggy
+    [Eis] as Schlurp
+}
+
+
+    Pikachu --> Hoothoot : Bestellung übergeben
+    Hoothoot --> "Küche" : Bestllung übergeben
+    Glumanda --> Enton : Zutaten anfordern
+    Shiggy --> Enton : Zutaten anfordern
+    Bissasam --> Enton : Zutaten anfordern
+    Schlurp --> Enton : Zutaten anfordern
+    Enton --> "Küche" : Zutaten übergeben
+    Enton -> Hoothoot : Engpässe und Bestandsergänzungen
+}
+
