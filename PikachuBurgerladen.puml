@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+[Kundenservice] as Pikachu
+[Bestellverwaltung] as Hoothoot
+[Küche] as Glumanda
+[Lagerverwaltung] as Enton
+
+
+@enduml
